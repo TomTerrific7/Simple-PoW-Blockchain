@@ -1,17 +1,18 @@
-const Blockchain = require("./blochchain");
-const Block = require("./block");
+const jayson = require('jayson');
+const {startMining, stopMining} = require('./mine');
 
-const db = {
-    blockchain: new Blockchain()
-}
+// create a server
+const server = new jayson.server({
+    startMining: function(_, callback) {
+      callback(null, 'Success!');
+      startMining();
+    },
+    stopMining: function(_, callback) {
+      callback(null, 'Success!');
+      stopMining();
+    }
+  });
 
-function mine(){
-    db.blockchain.addBlock(new Block());
+  console.log("Server Up");
 
-    console.log(`mined block #${db.blockchain.blockHeight()}`)
-    
-
-    setTimeout(mine, 5000);
-}
-
-mine();
+  server.http().listen(3000);
