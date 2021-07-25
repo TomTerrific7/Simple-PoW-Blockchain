@@ -1,6 +1,7 @@
 const jayson = require('jayson');
 const {startMining, stopMining} = require('./mine');
 
+
 // create a server
 const server = new jayson.server({
     startMining: function(_, callback) {
