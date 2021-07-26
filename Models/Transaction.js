@@ -13,6 +13,8 @@ class Transaction {
       utxos.push(output);
     });
   }
-}
+  }
+
+
 
 module.exports = Transaction;

@@ -1,4 +1,7 @@
 const SHA256 = require('crypto-js/sha256');
+const merkleTree = require('./merkleTree');
+
+
 
 
 
@@ -9,13 +12,15 @@ class Block {
         this.timestamp = Date.now();
         this.nonce = 0;
         this.transactions = [];
+        this.merkleTree = [];
 
         console.log(`Timestamp:${this.timestamp}`);
+        
     }
 
     addTransaction(tx) {
         this.transactions.push(tx);
-
+        
         
     }
 
@@ -25,6 +30,7 @@ class Block {
 
     execute() {
         this.transactions.forEach(x => x.execute());
+
     }
 
     

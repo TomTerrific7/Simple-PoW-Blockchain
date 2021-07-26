@@ -3,6 +3,7 @@ const Transaction = require('./Transaction');
 const UTXO = require('./UTXO');
 const Block = require('./block');
 const {PUBLIC_KEY} = require('./keypair');
+const { SHA256 } = require('crypto-js');
 const TARGET_DIFFICULTY = BigInt("0x0" + "F".repeat(63));
 const BLOCK_REWARD = 10;
 
@@ -35,14 +36,27 @@ function mine() {
         block.nonce++;
     }
 
+    block.merkleTree.push(SHA256(new Transaction())),
+    console.log(`Merkle:${block.merkleTree.push(SHA256(new Transaction()))}`);
+
+   
+
+    
+
+    
+
     block.execute();
+    
     
     db.blockchain.addBlock(block);
 
     console.log(`mined block #${db.blockchain.blockHeight()}`)
     console.log(`Nonce:${block.nonce}`);
-    console.log(`Hash:${block.blockHash()}`)
-    console.log(block.transactions[0]);
+    console.log(`Hash:${block.blockHash()}`);
+    
+    
+    
+
     
 
     setTimeout(mine, 5000);
