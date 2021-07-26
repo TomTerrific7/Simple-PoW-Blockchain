@@ -2,15 +2,26 @@
   "name": "powblockchain",
   "version": "1.0.0",
   "description": "",
-  "main": "block.js",
+  "main": "index.js",
+  "dependencies": {
+    "argv": "0.0.2",
+    "crypto-js": "^4.1.1",
+    "elliptic": "^6.5.4",
+    "jayson": "^3.6.4",
+    "yargs": "^17.0.1"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TomTerrific7/Simple-PoW-Blockchain.git"
+  },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "crypto-js": "^4.1.1",
-    "elliptic": "^6.5.4",
-    "jayson": "^3.6.4"
-  }
+  "bugs": {
+    "url": "https://github.com/TomTerrific7/Simple-PoW-Blockchain/issues"
+  },
+  "homepage": "https://github.com/TomTerrific7/Simple-PoW-Blockchain#readme"
 }
