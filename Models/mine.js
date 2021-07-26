@@ -1,5 +1,8 @@
 const db = require ('./db');
+const Transaction = require('./Transaction');
+const UTXO = require('./UTXO');
 const Block = require('./block');
+const {PUBLIC_KEY} = require('./keypair');
 const TARGET_DIFFICULTY = BigInt("0x0" + "F".repeat(63));
 
 
@@ -18,6 +21,8 @@ function mine() {
     if(!mining) return;
     
     const block = new Block();
+
+    // TODO: add transactions from the mempool.
 
     while(BigInt('0x' + block.blockHash()) >= TARGET_DIFFICULTY) {
         block.nonce++;

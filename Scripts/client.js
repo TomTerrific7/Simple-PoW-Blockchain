@@ -1,7 +1,6 @@
 const jayson = require('jayson');
 
-
-// create a client
+//create a client
 const client = jayson.client.http({
   port: 3000
 });
